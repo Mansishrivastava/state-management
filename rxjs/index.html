@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RxJS Experiment</title>
+</head>
+
+<body>
+    <script type="module">
+
+        //    let count = 0;
+        //    document.addEventListener('click', () => console.log(`Clicked ${++count} times`));
+
+// Using RxJS you isolate the state.
+
+        import { fromEvent, scan } from 'https://cdn.jsdelivr.net/npm/rxjs/+esm';
+
+        fromEvent(document, 'click')
+            .pipe(scan((count) => count + 1, 0))
+            .subscribe((count) => console.log(`Clicked ${count} times`));
+
+    </script>
+</body>
+
+</html>
